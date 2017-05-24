@@ -22,7 +22,7 @@ for CC in gcc gcc-6 clang; do
 
     sudo chown root:root util/fusermount3
     sudo chmod 4755 util/fusermount3
-    TEST_WITH_VALGRIND=true python3 -m pytest test/
+    TEST_WITH_VALGRIND=true python3 -m pytest --maxfail=20 test/
     cd ..
 done
 (cd build-$CC; sudo ninja install)
