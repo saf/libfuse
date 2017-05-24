@@ -37,10 +37,10 @@ for san in undefined address; do
     ninja
 
     # Test as root and regular user
-    sudo python3 -m pytest test/
+    sudo python3 -m pytest --maxfail=20 test/
     sudo chown root:root util/fusermount3
     sudo chmod 4755 util/fusermount3
-    python3 -m pytest test/
+    python3 -m pytest --maxfail=20 test/ 
     cd ..
 done
 
@@ -49,7 +49,7 @@ CC=gcc
 ./makeconf.sh
 ./configure
 make
-sudo python3 -m pytest test/
+sudo python3 -m pytest --maxfail=20 test/
 sudo make install
 
 # Documentation

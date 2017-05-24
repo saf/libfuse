@@ -66,9 +66,9 @@ def test_hello(tmpdir, name, options):
 def test_passthrough(tmpdir, name, debug, capfd):
     
     # Avoid false positives from libfuse debug messages
-    if debug:
-        capfd.register_output(r'^   unique: [0-9]+, error: -[0-9]+ .+$',
-                              count=0)
+#    if debug:
+#        capfd.register_output(r'^   unique: [0-9]+, error: -[0-9]+ .+$',
+#                              count=0)
 
     is_ll = (name == 'passthrough_ll')
     mnt_dir = str(tmpdir.mkdir('mnt'))
