@@ -201,7 +201,11 @@ FUSE_2.9 {
 FUSE_2.9.1 {
 	global:
 		fuse_fs_fallocate;
+} FUSE_2.9;
 
+FUSE_2.9.8 {
+	global:
+		fuse_invalidate_path;
 	local:
 		*;
-} FUSE_2.9;
+} FUSE_2.9.1;

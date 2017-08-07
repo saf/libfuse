@@ -759,6 +759,19 @@ int fuse_invalidate(struct fuse *f, const char *path);
 int fuse_is_lib_option(const char *opt);
 
 /**
+ * Invalidates cache for the given path.
+ *
+ * This calls fuse_lowlevel_notify_inval_inode internally.
+ *
+ * @return 0 on successful invalidation, negative error value otherwise.
+ *         This routine may return -ENOENT to indicate that there was
+ *         no entry to be invalidated, e.g., because the path has not
+ *         been seen before or has been forgotten; this should not be
+ *         considered to be an error.
+ */
+int fuse_invalidate_path(struct fuse *f, const char *path);
+
+/**
  * The real main function
  *
  * Do not call this directly, use fuse_main()
